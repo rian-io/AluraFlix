@@ -1,0 +1,9 @@
+PUT http://localhost:8080/patch HTTP/1.1
+content-type: application/json
+
+{
+    "id": "635878192cca8a5bc8a551fa",
+    "titulo": "Testando update!!",
+    "descricao": "Uma descrição menorzinha",
+    "url": "https://www.youtube.com/watch?v=eCriGGXSrbw"
+}
