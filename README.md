@@ -1,6 +1,6 @@
 # AluraFlix
 
-Desenvolvido para o 5º Alura challenges back end. Feito treinar o desenvolvimento com SpringBoot e alguns conceitos de APIs.
+Desenvolvido para o 5º Alura challenges back end. Projeto com objetivo de treinar o desenvolvimento com SpringBoot e alguns conceitos de APIs.
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
