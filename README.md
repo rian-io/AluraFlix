@@ -1,6 +1,6 @@
 # AluraFlix
 
-Desenvolvido para o 5º Alura challenges back end. Projeto com objetivo de treinar o desenvolvimento com SpringBoot e alguns conceitos de APIs.
+Desenvolvido para o 5º Alura challenges back end.
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
@@ -14,6 +14,8 @@ Desenvolvido para o 5º Alura challenges back end. Projeto com objetivo de trein
 
 ## Detalhes do projeto
 
-O projeto consiste em uma API especificada pelo Alura Challenges. É basicamente um crud de vídeos hospedados em outras plataformas.
+O projeto consiste em uma API especificada pelo Alura Challenges. É basicamente um crud de dados(título, descrição e url) de vídeos hospedados em outras plataformas.
+
+Desenvolvido com objetivo de treinar o SpringBoot e alguns conceitos de APIs.
 
 O banco de dados escolhido foi o MongoDB com o propósito de estudo sobre o funcionamento dele em si e a integração com o ecosistema Java/Spring.
