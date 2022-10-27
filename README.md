@@ -10,7 +10,7 @@ Desenvolvido para o 5º Alura challenges back end.
 | :fire: Desafio     | https://www.alura.com.br/challenges/back-end-5?host=https://cursos.alura.com.br
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://spring.io/images/spring-logo-2022-dark-2f10e8055653ec50e693eb444291d742.svg#vitrinedev)
+![](https://cdn.icon-icons.com/icons2/2699/PNG/512/java_logo_icon_168609.png#vitrinedev)
 
 ## Detalhes do projeto
 
