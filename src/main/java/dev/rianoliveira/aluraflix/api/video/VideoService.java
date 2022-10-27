@@ -16,43 +16,47 @@ public class VideoService {
     private VideoRepository repository;
 
     public List<Video> findAll() {
-        return repository.findAll();
+        return repository.findAllByDeleted(false);
     }
 
     public Video findById(String id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findByIdAndDeleted(id, false).orElseThrow();
     }
 
     public Video create(Video video) throws InvalidEntityException {
-        if (isValid(video))
-            return repository.insert(video);
-
-        throw new InvalidEntityException("Invalid video");
+        if (isInvalid(video))
+            throw new InvalidEntityException("Invalid video");
+            
+        video.setDeleted(false);
+        return repository.insert(video);
     }
 
     public Video update(Video video) throws InvalidEntityException {
-        if (isValid(video) && hasId(video))
-            return repository.save(video);
+        if (isInvalid(video) && hasNoId(video))
+            throw new InvalidEntityException("Invalid video");
         
-        throw new InvalidEntityException("Invalid video");
+        video.setDeleted(false);
+        return repository.save(video);        
     }
 
-    public void delete(String id) {
-        repository.deleteById(id);
+    public Video delete(String id) {
+        Video video = findById(id);
+        video.setDeleted(true);
+        return repository.save(video);
     }
 
-    private boolean isValid(Video video) {
-        if (video.getDescricao() == null || video.getDescricao().trim().isEmpty()) return false;
-        if (video.getTitulo() == null || video.getTitulo().trim().isEmpty()) return false;
-        if (video.getUrl() == null || video.getUrl().trim().isEmpty()) return false;
+    private boolean isInvalid(Video video) {
+        if (video.getDescricao() == null || video.getDescricao().trim().isEmpty()) return true;
+        if (video.getTitulo() == null || video.getTitulo().trim().isEmpty()) return true;
+        if (video.getUrl() == null || video.getUrl().trim().isEmpty()) return true;
 
         Pattern urlRegex = Pattern.compile("(https?:\\/\\/)[\\w/\\-?=%.]+\\.[\\w/\\-&?=%.]+");
         Matcher matcher = urlRegex.matcher(video.getUrl());
-        return matcher.matches();
+        return !matcher.matches();
     }
 
-    private boolean hasId(Video video) {
-        return !(video.getId() == null || video.getId().trim().isEmpty());
+    private boolean hasNoId(Video video) {
+        return (video.getId() == null || video.getId().trim().isEmpty());
     }
 
 }

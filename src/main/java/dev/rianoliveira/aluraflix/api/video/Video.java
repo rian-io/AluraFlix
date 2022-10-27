@@ -21,5 +21,7 @@ public class Video {
     private String descricao;
 
     private String url;
+    
+    private Boolean deleted;
 
 }

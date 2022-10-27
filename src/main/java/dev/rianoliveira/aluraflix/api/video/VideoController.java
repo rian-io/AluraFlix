@@ -76,10 +76,9 @@ public class VideoController {
 
     @DeleteMapping("/videos/{id}")
     public ResponseEntity<VideoDTO> delete(@PathVariable String id) {
-        Video video = service.findById(id);
-        service.delete(id);
+        Video deletedVideo = service.delete(id);
 
-        return new ResponseEntity<>(mapToDTO(video), HttpStatus.OK);
+        return new ResponseEntity<>(mapToDTO(deletedVideo), HttpStatus.OK);
     }
 
     private VideoDTO mapToDTO(Video video) {
